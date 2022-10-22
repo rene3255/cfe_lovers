@@ -2,6 +2,9 @@ from pathlib import Path
 import environ
 import dj_database_url
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
@@ -34,6 +37,7 @@ INSTALLED_APPS = [
     'coffee_house',
     'app_config',
     'favorite',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -123,6 +127,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+cloudinary.config( 
+  cloud_name = "dlx8oaq0o", 
+  api_key = "169133284948194", 
+  api_secret = "aiKg95q_d1bZ7Dg6wbAEXH0PUZ4" 
+)
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'

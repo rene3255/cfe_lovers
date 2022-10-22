@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
-
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class CoffeeHouse(models.Model):
@@ -27,7 +27,8 @@ class CoffeeHouse(models.Model):
     schedule = models.CharField(max_length=255, null=True, blank=True)
     latitude = models.CharField(max_length=255, null=True, blank=True)
     longitude = models.CharField(max_length=255, null=True, blank=True)
-    coffee_image = models.ImageField(null=True, blank=True, upload_to="coffees_images/")
+    #coffee_image = models.ImageField(null=True, blank=True, upload_to="coffees_images/")
+    coffee_image = CloudinaryField('coffees_images')
     stars_average = models.DecimalField(max_digits=2, decimal_places=1, default=0.5)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
