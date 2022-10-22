@@ -1,5 +1,6 @@
 from pathlib import Path
 import environ
+import dj_database_url
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -15,7 +16,7 @@ SECRET_KEY = SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com']
+ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coffee-beloved.com']
 
 
 # Application definition
@@ -70,6 +71,11 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 
 print(str(os.environ.get('DB_HOST')))
 DATABASES = {
+    'default': dj_database_url.config()
+        
+}
+'''
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': str(os.environ.get('DB_NAME')),
@@ -79,8 +85,7 @@ DATABASES = {
         'PORT':os.environ.get('DB_PORT'),
     }
 }
-
-
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
