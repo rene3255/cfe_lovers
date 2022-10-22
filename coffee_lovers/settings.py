@@ -14,8 +14,10 @@ environ.Env.read_env()
 SECRET_KEY = SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
+'''
+ALLOWED_HOSTS = ["*"]
+'''
 ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coffee-beloved.com']
 
 
@@ -69,7 +71,7 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-print(str(os.environ.get('DB_HOST')))
+
 DATABASES = {
     'default': dj_database_url.config()
         
@@ -85,8 +87,8 @@ DATABASES = {
         'PORT':os.environ.get('DB_PORT'),
     }
 }
-'''
 
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
