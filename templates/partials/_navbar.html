@@ -1,0 +1,62 @@
+
+{% load static %}
+<div class="nav_menu">
+  <div class="logo">
+    <div class="logo_container">
+      <div class="logo_name">
+	<img class="coffeecup" src="{% static 'img/logo.png' %}">
+      <a class="navbar-brand " href="http://localhost:8000"> <img src="{% static 'img/CoffeeLovers.png' %}">
+      </div>
+        {% if user.is_authenticated %}
+      <div class="user_name">
+          <p class="user_name_text">{{ user.username }}</p>
+      </div>
+        {% endif %}
+    </div>
+  </div>  
+
+  <div class="search">
+    <form class="search_container" method="GET" action="{% url 'home' %}"> 
+      <div>
+      <input id="myText" onclick="myFunction()" class="search_input" type="text" name="q" placeholder="Search Coffeehouses..." autofocus />
+      </div>
+    </form>  
+    <div class="search_glass">
+      <a  href=""><img   src="{% static 'img/Search.png' %}"></a>
+    </div>
+  </div> 
+  <div class="map_icon">
+    <a class="nav-link" href="">
+      <img src="{% static 'img/Address.png' %}"/>
+    </a>
+  </div>
+ 
+ 
+    {% if user.is_authenticated %}
+      <div class="auth_icon">
+        <div class="auth_container">
+          <a class="nav-link" href="{% url 'favorite:list' user.id %}">
+            <img class="bookmark-icon" src="{% static 'img/Bookmark-icon.png' %}"/>
+          </a>
+              
+          <a class="nav-link" href="{% url 'useraccount:logout' %}">
+            <img class="out-icon" src="{% static 'img/logout.png' %}"/>
+          </a>
+        </div> 
+      </div>
+      
+    {% else %}
+    <div class="auth_icon">
+      <div class="auth_container">
+        <a class="nav-link" href="{% url 'useraccount:sign_up' %}">
+	        <img class="signup-icon" src="{% static 'img/Account.png' %}"/>
+        </a>
+	      <a class="nav-link" href="{% url 'useraccount:login' %}">
+	        <img class="log-icon" src="{% static 'img/login.png' %}"/>
+	      </a>
+      </div> 
+    </div>    
+    {% endif %}
+      
+  </div>
+
