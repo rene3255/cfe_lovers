@@ -21,7 +21,7 @@ DEBUG = True
 '''
 ALLOWED_HOSTS = ["*"]
 '''
-ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coffee-beloved.com']
+ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coffee-beloved.com', 'localhost:8000', 'localhost']
 
 
 # Application definition
@@ -74,25 +74,25 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+if not DEBUG:
 
-
-DATABASES = {
-    'default': dj_database_url.config()
-        
-}
-'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': str(os.environ.get('DB_NAME')),
-        'USER': str(os.environ.get('DB_USER')),
-        'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-        'HOST':str(os.environ.get('DB_HOST')),
-        'PORT':os.environ.get('DB_PORT'),
+    DATABASES = {
+        'default': dj_database_url.config()
+            
     }
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': str(os.environ.get('DB_NAME')),
+            'USER': str(os.environ.get('DB_USER')),
+            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
+            'HOST':str(os.environ.get('DB_HOST')),
+            'PORT':os.environ.get('DB_PORT'),
+        }
+    }
 
-'''
+
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
