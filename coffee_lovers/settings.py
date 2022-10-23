@@ -6,9 +6,11 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
 environ.Env.read_env()
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'app_config',
     'favorite',
     'cloudinary',
+    'environ',
 ]
 
 MIDDLEWARE = [
@@ -84,11 +87,11 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': str(os.environ.get('DB_NAME')),
-            'USER': str(os.environ.get('DB_USER')),
-            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-            'HOST':str(os.environ.get('DB_HOST')),
-            'PORT':os.environ.get('DB_PORT'),
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USER'),
+            'PASSWORD': env('DB_PASSWORD'),
+            'HOST': env('DB_HOST'),
+            'PORT': env('DB_PORT'),
         }
     }
 
