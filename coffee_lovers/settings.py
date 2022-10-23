@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coff
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,8 +42,8 @@ INSTALLED_APPS = [
     'app_config',
     'favorite',
     'cloudinary',
-    'environ',
-    'config',
+    
+    
 ]
 
 MIDDLEWARE = [
