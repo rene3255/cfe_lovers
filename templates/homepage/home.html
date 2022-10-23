@@ -14,27 +14,27 @@
   <div class="card1">
     <a class="nav-link" href="{% url 'coffee_house:details' card1.id %}">
       {% if card1_found.card1_selected %}
-        <img class="image_card_found" src="{{ card1.coffee_image }}">
+        <img class="image_card_found" src="{{ card1.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card1.coffee_image }}">
+        <img class="image_card" src="{{ card1.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
   <div class="card2">
     <a class="nav-link" href="{% url 'coffee_house:details' card2.id %}">
       {% if card2_found.card2_selected %}
-        <img class="image_card_found" src="{{ card2.coffee_image }}">
+        <img class="image_card_found" src="{{ card2.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card2.coffee_image }}">
+        <img class="image_card" src="{{ card2.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
   <div class="card3"> 
     <a class="nav-link" href="{% url 'coffee_house:details' card3.id %}">
       {% if card3_found.card3_selected %}
-        <img class="image_card_found" src="{{ card3.coffee_image }}">
+        <img class="image_card_found" src="{{ card3.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card3.coffee_image }}">
+        <img class="image_card" src="{{ card3.coffee_image.url }}">
       {% endif %}  
     </a>
 
@@ -42,9 +42,9 @@
   <div class="card4">
     <a class="nav-link" href="{% url 'coffee_house:details' card4.id %}">
       {% if card4_found.card4_selected %}
-        <img class="image_card_found" src="{{ card4.coffee_image }}">
+        <img class="image_card_found" src="{{ card4.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card4.coffee_image }}">
+        <img class="image_card" src="{{ card4.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
@@ -158,36 +158,36 @@
   <div class="card5">
     <a class="nav-link" href="{% url 'coffee_house:details' card5.id %}">
       {% if card5_found.card5_selected %}
-        <img class="image_card_found" src="{{ card5.coffee_image }}">
+        <img class="image_card_found" src="{{ card5.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card5.coffee_image }}">
+        <img class="image_card" src="{{ card5.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
   <div class="card6">
     <a class="nav-link" href="{% url 'coffee_house:details' card6.id %}">
       {% if card6_found.card6_selected %}
-        <img class="image_card_found" src="{{ card6.coffee_image }}">
+        <img class="image_card_found" src="{{ card6.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card6.coffee_image }}">
+        <img class="image_card" src="{{ card6.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
   <div class="card7">
     <a class="nav-link" href="{% url 'coffee_house:details' card7.id %}">
       {% if card7_found.card7_selected %}
-        <img class="image_card_found" src="{{ card7.coffee_image }}">
+        <img class="image_card_found" src="{{ card7.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card7.coffee_image }}">
+        <img class="image_card" src="{{ card7.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>
   <div class="card8">
     <a class="nav-link" href="{% url 'coffee_house:details' card8.id %}">
       {% if card8_found.card8_selected %}
-        <img class="image_card_found" src="{{ card8.coffee_image }}">
+        <img class="image_card_found" src="{{ card8.coffee_image.url }}">
       {% else %}  
-        <img class="image_card" src="{{ card8.coffee_image }}">
+        <img class="image_card" src="{{ card8.coffee_image.url }}">
       {% endif %}  
     </a>
   </div>

@@ -28,7 +28,7 @@ class CoffeeHouse(models.Model):
     latitude = models.CharField(max_length=255, null=True, blank=True)
     longitude = models.CharField(max_length=255, null=True, blank=True)
     #coffee_image = models.ImageField(null=True, blank=True, upload_to="coffees_images/")
-    coffee_image = CloudinaryField('coffees_images', blank=True)
+    coffee_image = CloudinaryField('coffees_images/', blank=True)
     stars_average = models.DecimalField(max_digits=2, decimal_places=1, default=0.5)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)

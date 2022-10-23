@@ -77,7 +77,7 @@ def home(request):
     else:
         card8= coffee_images_list[7]  
         card8_found= {'card8_selected': False }  
-    
+    print("CARD UNO: %s" %card1)
     context = {'coffee_title': selected_title(),
                'card1': card1,
                'card2': card2,
