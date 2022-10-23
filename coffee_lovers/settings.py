@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'favorite',
     'cloudinary',
     'environ',
+    'config',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ cloudinary.config(
 STATIC_URL = '/static/'
 MEDIA_URL = '/coffees_images/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'coffees_images')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 

@@ -12,7 +12,6 @@ gunicorn = "*"
 psycopg2-binary = "*"
 dj-database-url= "*"
 whitenoise = "*"
-config = "*"
 
 [requires]
 python_version = "3.9"
