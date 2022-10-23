@@ -2,7 +2,6 @@ from pathlib import Path
 from os import environ
 import dj_database_url
 import os
-import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
