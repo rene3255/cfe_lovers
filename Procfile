@@ -1,2 +1,2 @@
-realase: python3 manage.py migrate
-web: gunicorn coffee_lovers.wsgi --log-file -
+realase: pip freeze && python3 src/manage.py migrate
+web: gunicorn config.wsgi --chdir src --log-file -
