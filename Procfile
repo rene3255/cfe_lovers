@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi
+web: gunicorn coffee_lovers.wsgi

@@ -1,7 +1,7 @@
 from pathlib import Path
 import dj_database_url
 import os
-import environ
+from environ import Env
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -9,23 +9,20 @@ import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 print("BASE PATH: %s" % BASE_DIR)
-env = environ.Env()
-env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
+ENV = Env()
+# env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = str(os.environ.get("SECRET_KEY"))
+SECRET_KEY = ENV.str("SECRET_KEY")
 
 print("SECRET KEY: %s" % SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-'''
-ALLOWED_HOSTS = ["*"]
-'''
-ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'coffee-beloved.com', 'www.coffee-beloved.com', 'localhost:8000', 'localhost']
+DEBUG = ENV.bool("DEBUG", default=True)
 
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -80,26 +77,12 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-if not DEBUG:
 
-    DATABASES = {
-        'default': dj_database_url.config()
-            
-    }
-    db_from_env = dj_database_url.config()
-    DATABASES['default'].update(db_from_env)
-if DEBUG:
-    print("DDEMOS : %s" % str(os.environ.get('DB_NAME',1)))
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': str(os.environ.get('DB_NAME',3)),
-            'USER': str(os.environ.get('DB_USER')),
-            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
-            'HOST': str(os.environ.get('DB_HOST')),
-            'PORT': os.environ.get('DB_PORT'),
-        }
-    }
+
+   
+   
+
+
 
 
 # Password validation
@@ -151,7 +134,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 
 )
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 
