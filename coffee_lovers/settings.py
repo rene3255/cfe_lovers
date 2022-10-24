@@ -1,23 +1,24 @@
 from pathlib import Path
-import environ
 import dj_database_url
 import os
+import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+print("BASE PATH: %s" % BASE_DIR)
 env = environ.Env()
-environ.Env.read_env()
-
+env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = str(os.environ.get("SECRET_KEY"))
 
+print("SECRET KEY: %s" % SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 '''
@@ -85,15 +86,18 @@ if not DEBUG:
         'default': dj_database_url.config()
             
     }
+    db_from_env = dj_database_url.config()
+    DATABASES['default'].update(db_from_env)
 if DEBUG:
+    print("DDEMOS : %s" % str(os.environ.get('DB_NAME',1)))
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': env('DB_NAME'),
-            'USER': env('DB_USER'),
-            'PASSWORD': env('DB_PASSWORD'),
-            'HOST': env('DB_HOST'),
-            'PORT': env('DB_PORT'),
+            'NAME': str(os.environ.get('DB_NAME',3)),
+            'USER': str(os.environ.get('DB_USER')),
+            'PASSWORD': str(os.environ.get('DB_PASSWORD')),
+            'HOST': str(os.environ.get('DB_HOST')),
+            'PORT': os.environ.get('DB_PORT'),
         }
     }
 
