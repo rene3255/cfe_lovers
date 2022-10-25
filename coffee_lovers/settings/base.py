@@ -1,7 +1,6 @@
-from pathlib import Path
 import dj_database_url
 import os
-from environ import Env
+from environ import Env, Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -39,6 +38,7 @@ INSTALLED_APPS = [
     'app_config',
     'favorite',
     'cloudinary',
+    'environ',
     
     
 ]

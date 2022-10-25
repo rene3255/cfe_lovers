@@ -1,5 +1,5 @@
 from .base import *
-DEBUG = os.environ.get("DEBUG", default=False)
+DEBUG = ENV.bool("DEBUG", default=False)
 ALLOWED_HOSTS = [".herokuapp.com"]
 
 DATABASES = {
