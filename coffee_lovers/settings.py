@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'app_config',
     'favorite',
     'cloudinary',
-    'environ',
-    
+     
     
 ]
 
