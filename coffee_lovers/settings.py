@@ -10,8 +10,7 @@ import cloudinary.api
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 env = environ.Env()
 environ.Env.read_env()
-if os.path.exists('env.py'):
-    import environ
+
 #env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
 # Quick-start development settings - unsuitable for production
