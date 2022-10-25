@@ -1,1 +1,1 @@
-web: gunicorn coffee_lovers.wsgi
+web: gunicorn coffee_lovers.wsgi --log-file -

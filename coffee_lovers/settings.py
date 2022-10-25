@@ -1,28 +1,30 @@
+import environ
 from pathlib import Path
 import dj_database_url
+
 import os
-from environ import Env, Path
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-print("BASE PATH: %s" % BASE_DIR)
-ENV = Env()
-# env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+env = environ.Env()
+environ.Env.read_env()
+
+#env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ENV.str("SECRET_KEY")
+SECRET_KEY = env.str("SECRET_KEY")
 
-print("SECRET KEY: %s" % SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = ENV.bool("DEBUG", default=True)
+DEBUG = env.bool('DEBUGG', default=True)
 
-ALLOWED_HOSTS = []
+print("DEBUG : %s" % DEBUG)
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=["*"]))
 
 # Application definition
 
@@ -80,6 +82,22 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
+#DATABASES = {
+ #     'default': dj_database_url.config()
+        
+#}
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env.str('DB_NAME'),
+        'USER': env.str('DB_USER'),
+        'PASSWORD': env.str('DB_PASSWORD'),
+        'HOST': env.str('DB_HOST'),
+        'PORT': env.int(('DB_PORT')),
+    }
+}
    
    
 
@@ -136,7 +154,7 @@ STATICFILES_DIRS = (
 
 )
 
-
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
