@@ -1,4 +1,4 @@
-- r base.txt
+-r base.txt
 gunicorn==20.1.0
 cloudinary==1.30.0
 psycopg2==2.9.4
