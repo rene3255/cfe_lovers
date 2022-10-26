@@ -5,9 +5,10 @@ import dj_database_url
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
+from .base import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 env = environ.Env()
 environ.Env.read_env()
 
@@ -20,10 +21,10 @@ environ.Env.read_env()
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUGG', default=True)
+DEBUG = env.bool('DEBUGG', default=False)
 
 print("DEBUG : %s" % DEBUG)
-ALLOWED_HOSTS = tuple(env.list('ALLOWED_HOSTS', default=["*"]))
+ALLOWED_HOSTS = tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
 
@@ -46,13 +47,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'coffee_lovers.urls'
@@ -80,24 +82,10 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 
-#DATABASES = {
- #     'default': dj_database_url.config()
-        
-#}
-
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('DB_NAME'),
-        'USER': env.str('DB_USER'),
-        'PASSWORD': env.str('DB_PASSWORD'),
-        'HOST': env.str('DB_HOST'),
-        'PORT': env.int(('DB_PORT')),
-    }
+    'default': dj_database_url.config()
+      
 }
-   
-   
 
 
 
