@@ -1,10 +1,8 @@
-import os
+
 from pathlib import Path
 import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import environ
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
@@ -82,21 +80,6 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 #}
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env.str('DB_NAME'),
-        'USER': env.str('DB_USER'),
-        'PASSWORD': env.str('DB_PASSWORD'),
-        'HOST': env.str('DB_HOST'),
-        'PORT': env.int(('DB_PORT')),
-    }
-}
-   
-   
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -132,13 +115,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-cloudinary.config( 
-  cloud_name = "dlx8oaq0o", 
-  api_key = "169133284948194", 
-  api_secret = "aiKg95q_d1bZ7Dg6wbAEXH0PUZ4" 
-)
-
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_URL = '/static/'
 MEDIA_URL = '/coffees_images/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
@@ -148,7 +125,10 @@ STATICFILES_DIRS = (
 
 )
 
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 
 
 # Default primary key field type

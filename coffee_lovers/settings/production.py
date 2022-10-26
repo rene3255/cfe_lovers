@@ -1,16 +1,14 @@
 from .base import *
-import os
 from pathlib import Path
 import dj_database_url
-import environ
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-env = environ.Env()
-environ.Env.read_env()
+env = os.environ.Env()
+os.environ.Env.read_env()
 
 #env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
@@ -18,12 +16,12 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = tuple(env.list('ALLOWED_PROD_HOST'))
+ALLOWED_HOSTS = ["coffee-beloved.herokuapp.com"] # tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
 
@@ -139,7 +137,8 @@ STATICFILES_DIRS = (
 
 )
 
-STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
