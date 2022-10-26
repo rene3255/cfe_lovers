@@ -1,4 +1,4 @@
-from base import *
+from .base import *
 import os
 from pathlib import Path
 import dj_database_url
@@ -9,7 +9,6 @@ import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-print("BASE_DIR: %s" % BASE_DIR)
 env = environ.Env()
 environ.Env.read_env()
 
@@ -24,7 +23,6 @@ SECRET_KEY = env.str("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-print("DEBUG : %s" % DEBUG)
 ALLOWED_HOSTS = tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
