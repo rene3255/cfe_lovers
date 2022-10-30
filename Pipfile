@@ -13,6 +13,7 @@ psycopg2-binary = "*"
 dj-database-url= "*"
 whitenoise = "*"
 cloudinary = "*"
+django-environ = "*"
 
 [requires]
 python_version = "3.9"
