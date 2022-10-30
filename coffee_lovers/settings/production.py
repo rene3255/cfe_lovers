@@ -1,15 +1,14 @@
+from .base import *
 from pathlib import Path
 import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 import environ
 import os
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-env = os.environ.Env()
-os.environ.Env.read_env()
+env = environ.Env()
+environ.Env.read_env()
 
 #env.read_env(os.path.join(BASE_DIR, 'coffee_lovers/.env'))
 
