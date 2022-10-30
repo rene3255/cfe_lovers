@@ -40,10 +40,7 @@ INSTALLED_APPS = [
     'coffee_house',
     'app_config',
     'favorite',
-    'cloudinary',
-    
-     
-    
+       
 ]
 
 MIDDLEWARE = [
@@ -84,9 +81,12 @@ WSGI_APPLICATION = 'coffee_lovers.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': dj_database_url.config(
+      default=config('DATABASE_URL')
+    )
       
 }
+
 
 
 
