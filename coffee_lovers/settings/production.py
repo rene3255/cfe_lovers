@@ -3,6 +3,7 @@ import dj_database_url
 import environ
 import os
 from decouple import config
+from .base import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -37,7 +38,7 @@ INSTALLED_APPS = [
     'app_config',
     'favorite',
     'cloudinary',
-    'environ',
+    
      
     
 ]
