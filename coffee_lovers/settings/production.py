@@ -22,7 +22,7 @@ environ.Env.read_env()
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = env.bool('DEBUGG', default=False)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTSS') # tuple(env.list('ALLOWED_PROD_HOST'))
 

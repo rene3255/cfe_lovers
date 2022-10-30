@@ -21,7 +21,7 @@ environ.Env.read_env()
 SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 print("SECRET_KEY %s" % SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUGG', default=False)
 
 
 ALLOWED_HOSTS = ["*"]  # tuple(env.list('ALLOWED_HOSTSS', default=["*"]))
