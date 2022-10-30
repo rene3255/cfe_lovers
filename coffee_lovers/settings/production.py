@@ -21,7 +21,7 @@ SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["coffee-beloved.herokuapp.com"] # tuple(env.list('ALLOWED_PROD_HOST'))
+ALLOWED_HOSTS = ["*"] # tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
 
