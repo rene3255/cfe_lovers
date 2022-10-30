@@ -9,7 +9,7 @@ import cloudinary.uploader
 import cloudinary.api
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
-BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 env = environ.Env()
 environ.Env.read_env()
 
@@ -24,7 +24,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"] # tuple(env.list('ALLOWED_PROD_HOST'))
+ALLOWED_HOSTS = config('ALLOWED_HOSTSS') # tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
 

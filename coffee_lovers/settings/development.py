@@ -4,6 +4,7 @@ from pathlib import Path
 import environ
 import os
 from .base import *
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -20,10 +21,10 @@ environ.Env.read_env()
 SECRET_KEY = str(os.environ.get('SECRET_KEY'))
 print("SECRET_KEY %s" % SECRET_KEY)
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1"]  # tuple(env.list('ALLOWED_HOSTSS', default=["*"]))
+ALLOWED_HOSTS = ["*"]  # tuple(env.list('ALLOWED_HOSTSS', default=["*"]))
 
 # Application definition
 
