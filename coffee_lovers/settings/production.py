@@ -1,4 +1,4 @@
-from base import *
+from settings.base import *
 from pathlib import Path
 import dj_database_url
 import environ
