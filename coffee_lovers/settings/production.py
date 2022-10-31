@@ -23,6 +23,8 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 ALLOWED_HOSTS = tuple(config('ALLOWED_HOSTSS'),) # tuple(env.list('ALLOWED_PROD_HOST'))
 
