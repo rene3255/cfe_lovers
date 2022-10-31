@@ -24,7 +24,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUGG', default=False)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTSS') # tuple(env.list('ALLOWED_PROD_HOST'))
+ALLOWED_HOSTS = tuple(config('ALLOWED_HOSTSS'),) # tuple(env.list('ALLOWED_PROD_HOST'))
 
 # Application definition
 
@@ -133,6 +133,7 @@ cloudinary.config(
 )
 
 STATIC_URL = '/static/'
+STATICFILES_STORAGE='whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/coffees_images/'
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'coffees_images')
