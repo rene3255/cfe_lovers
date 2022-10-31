@@ -29,7 +29,6 @@ SESSION_COOKIE_SECURE = True
 ALLOWED_HOSTS = tuple(config('ALLOWED_HOSTSS'),) # tuple(env.list('ALLOWED_PROD_HOST'))
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
