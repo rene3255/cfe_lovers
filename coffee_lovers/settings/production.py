@@ -24,8 +24,8 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = list(config('ALLOWED_HOSTSS')) # tuple(env.list('ALLOWED_PROD_HOST'))
-
+#ALLOWED_HOSTS = list(config('ALLOWED_HOSTSS')) # tuple(env.list('ALLOWED_PROD_HOST'))
+ALLOWED_HOSTS = ['coffee-beloved.herokuapp.com', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [
