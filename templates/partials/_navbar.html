@@ -5,7 +5,7 @@
     <div class="logo_container">
       <div class="logo_name">
 	<img class="coffeecup" src="{% static 'img/logo.png' %}">
-      <a class="navbar-brand " href="http://localhost:8000"> <img src="{% static 'img/CoffeeLovers.png' %}">
+      <a class="navbar-brand " href="{% url 'home' %}"> <img src="{% static 'img/CoffeeLovers.png' %}">
       </div>
         {% if user.is_authenticated %}
       <div class="user_name">
