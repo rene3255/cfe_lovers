@@ -47,7 +47,7 @@ DATABASES = {
 
 
 cloudinary.config( 
-  cloud_name = "dlx8oaq0o", 
-  api_key = "169133284948194", 
-  api_secret = "aiKg95q_d1bZ7Dg6wbAEXH0PUZ4" 
+  cloud_name = config('CLOUD_NAME'), 
+  api_key = config('API_KEY'), 
+  api_secret = config('API_SECRET') 
 )
