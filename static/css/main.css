@@ -570,3 +570,49 @@ body {
   width: 28px;
   height: 28px;
 } 
+
+@media only screen and (max-width: 800px) {
+  .container {
+    width: var(--web-page-width);
+    margin: 0px auto;
+    background-color: white;
+    row-gap: .5rem;
+    column-gap: 1rem;
+    grid-template-rows: 80px
+                        295px
+                        40px 
+                        227px 
+                        90px 
+                        227px 
+                        90px
+                        350px
+                        350px
+                        80px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "nav_menu"
+                         "publicity"                       
+                         "coffee_near"
+                         "card1"
+                         "desc1"
+                         "card2" 
+                         "desc2"
+                         "card3"
+                         "desc3"
+                         "card4"
+                         "desc4"
+                         "card5"
+                         "desc5"
+                         "card6"
+                         "desc6"
+                         "card7"
+                         "desc7"
+                         "card8"
+                         "desc8"
+                         "about_app"
+                         "info_app"
+                         "footer";
+  
+  }
+  
+
+}
