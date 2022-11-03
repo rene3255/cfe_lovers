@@ -4,6 +4,7 @@ from pathlib import Path
 import environ
 import os
 from .base import *
+from decouple import config
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
@@ -45,7 +46,12 @@ DATABASES = {
         'PORT':os.environ.get('DB_PORT'),
     }
 }
-   
+ 
+cloudinary.config( 
+  cloud_name = str(os.environ.get('CLOUD_NAME')), 
+  api_key = str(os.environ.get('API_KEY')), 
+  api_secret = str(os.environ.get('API_SECRET'))
+)  
    
 
 
